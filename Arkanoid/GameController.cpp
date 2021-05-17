@@ -45,8 +45,8 @@ void GameController::LoadLevel(string& levelFile)
 {
   ifstream level;
   string line;
-  Vector2f blockSize = { 70, 30 };
-  Vector2f blockIndent = { 10, 10 };
+  Vector2f blockSize = { 55, 25 };
+  Vector2f blockIndent = { 15, 15 };
   solidBlocksCount = 0;
   level.open(levelFile);
   for (int y = 0; getline(level, line) && y < 30; y++)
@@ -109,11 +109,11 @@ void GameController::LoadLevel(string& levelFile)
 
 void GameController::ResetBallAndPlatform()
 {
-  auto ball = make_shared<Ball>(Transform({ (1000 - 16) / 2, 800 }, { 16, 16 }, true), scene.renderManager, *this, Vector2f(1, -10), 400.f, false);
+  auto ball = make_shared<Ball>(Transform({ (800 - 10) / 2, 650 }, { 10, 10 }, true), scene.renderManager, *this, Vector2f(1, -10), 400.f, false);
   scene.AddUpdatable(static_pointer_cast<Updatable, Ball>(ball));
   ballList.push_back(ball);
 
-  auto platform = make_shared<Platform>(Transform({ 400, 1000 - 60 }, { 200, 15 }, true), scene.renderManager, Vector2f(10, 1000 - 60), Vector2f(1000 - 210, 1000 - 60), 800.f);
+  auto platform = make_shared<Platform>(Transform({ 300, 800 - 60 }, { 200, 15 }, true), scene.renderManager, Vector2f(10, 800 - 60), Vector2f(800 - 210, 800 - 60), 800.f);
   scene.AddUpdatable(static_pointer_cast<Updatable, Platform>(platform));
   scene.eventManager->AddKeyboardEventListener(static_pointer_cast<EventListener, Platform>(platform));
   platformList.push_back(platform);
@@ -126,7 +126,7 @@ void GameController::AddScore(int points)
 
 void GameController::AddBall()
 {
-  auto ball = make_shared<Ball>(Transform({ (1000 - 16) / 2, 800 }, { 16, 16 }, true), scene.renderManager, *this, Vector2f(1, -10), 300.f, true);
+  auto ball = make_shared<Ball>(Transform({ (800 - 10) / 2, 650 }, { 10, 10 }, true), scene.renderManager, *this, Vector2f(1, -10), 300.f, true);
   scene.AddUpdatable(static_pointer_cast<Updatable, Ball>(ball));
   ballList.push_back(ball);
 }
@@ -210,14 +210,14 @@ bool GameController::TryHitBlocks(Transform& transform, const Vector2f& directio
 GameController::GameController(Scene& scene, TTF_Font* font, const string& levelFile) : Updatable(true), scene(scene), levelFile(levelFile)
 {
   this->font = font;
-  score = make_shared<Score>(Transform({ 10, 10 }, { 25, 25 }), scene.renderManager, 0, font, Vector4uc{ 255,255,255,255 });
+  score = make_shared<Score>(Transform({ 15, 15 }, { 25, 25 }), scene.renderManager, 0, font, Vector4uc{ 255,255,255,255 });
 
-  wallList.push_back(make_shared<Wall>(Transform({ 0, 0 }, { 1000, 10 }, true) , scene.renderManager));
-  wallList.push_back(make_shared<Wall>(Transform({ 0, 0 }, { 1000, 5 }, true) , scene.renderManager));
-  wallList.push_back(make_shared<Wall>(Transform({ 0, 0 }, { 10, 1000 }, true) , scene.renderManager));
-  wallList.push_back(make_shared<Wall>(Transform({ 0, 0 }, { 5, 1000 }, true) , scene.renderManager));
-  wallList.push_back(make_shared<Wall>(Transform({ 1000 - 10, 0 }, { 10, 1000 }, true) , scene.renderManager));
-  wallList.push_back(make_shared<Wall>(Transform({ 1000 - 5, 0 }, { 5, 1000 }, true) , scene.renderManager));
+  wallList.push_back(make_shared<Wall>(Transform({ 0, 0 }, { 800, 15 }, true) , scene.renderManager));
+  wallList.push_back(make_shared<Wall>(Transform({ 0, 0 }, { 800, 10 }, true) , scene.renderManager));
+  wallList.push_back(make_shared<Wall>(Transform({ 0, 0 }, { 15, 800 }, true) , scene.renderManager));
+  wallList.push_back(make_shared<Wall>(Transform({ 0, 0 }, { 10, 800 }, true) , scene.renderManager));
+  wallList.push_back(make_shared<Wall>(Transform({ 800 - 15, 0 }, { 15, 800 }, true) , scene.renderManager));
+  wallList.push_back(make_shared<Wall>(Transform({ 800 - 10, 0 }, { 10, 800 }, true) , scene.renderManager));
 
   LoadLevel(this->levelFile);
   ResetBallAndPlatform();

@@ -30,7 +30,7 @@ void Bonus::Destroy()
 
 void Bonus::Update(float deltaTime)
 {
-  if (transform.position.y > 1000.f)
+  if (transform.position.y > 800.f)
   {
     Destroy();
   }

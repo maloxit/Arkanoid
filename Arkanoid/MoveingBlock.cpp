@@ -55,8 +55,17 @@ void MoveingBlock::Update(float deltaTime)
   else
   {
     float normalScalarProj = Vector2f::ScalarPojection(direction, closestHit.normalVec);
-    transform.position += direction * closestHit.distance;
-    direction = direction - normalScalarProj * 2 * closestHit.normalVec;
-    direction.Normalise();
+    if (closestHit.distance < 0)
+    {
+      transform.position -= closestHit.normalVec * closestHit.distance;
+      direction = direction - normalScalarProj * 2 * closestHit.normalVec;
+      direction.Normalise();
+    }
+    else
+    {
+      transform.position += direction * closestHit.distance;
+      direction = direction - normalScalarProj * 2 * closestHit.normalVec;
+      direction.Normalise();
+    }
   }
 }

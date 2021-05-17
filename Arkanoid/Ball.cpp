@@ -85,6 +85,13 @@ void Ball::Update(float deltaTime)
       if (hitType != HitObjectType::NONE)
       {
         normalScalarProj = Vector2f::ScalarPojection(direction, closestHit.normalVec);
+        if (closestHit.distance < 0)
+        {
+          transform.position -= closestHit.normalVec * closestHit.distance;
+          direction = direction - normalScalarProj * 2 * closestHit.normalVec;
+          direction.Normalise();
+          step += closestHit.distance;
+        }
         transform.position += direction * closestHit.distance;
         step -= closestHit.distance;
       }

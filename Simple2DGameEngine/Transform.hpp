@@ -17,6 +17,7 @@ namespace GameEngine
     Vector2f size;
     Transform(const Vector2f& position, const Vector2f& size, bool enableHit = false);
     bool MoveLin(const Vector2f& target, float step);
+    bool IsIntersect(const Transform& intersectTransform);
     bool TryHit(const Vector2f& direction, float step, const Transform& hitTransform, Hit& hit);
   };
 

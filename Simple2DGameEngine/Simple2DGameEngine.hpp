@@ -1,0 +1,15 @@
+#pragma once
+
+#include "SDL.h"
+#include "SDL_ttf.h"
+#include "Vectorf.hpp"
+#include "Transform.hpp"
+#include "GameWindow.hpp"
+#include "RenderManager.hpp"
+#include "RenderObject.hpp"
+#include "Updatable.hpp"
+#include "EventListener.hpp"
+#include "EventManager.hpp"
+#include "Scene.hpp"
+#include "RenderPrimitivesSet.hpp"
+#include "RenderText.hpp"

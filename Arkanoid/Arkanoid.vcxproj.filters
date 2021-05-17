@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="ArkanoidScene.cpp" />
+    <ClCompile Include="Ball.cpp" />
+    <ClCompile Include="Block.cpp" />
+    <ClCompile Include="Bonus.cpp" />
+    <ClCompile Include="BonusBlock.cpp" />
+    <ClCompile Include="Destroyable.cpp" />
+    <ClCompile Include="GameController.cpp" />
+    <ClCompile Include="HealthBlock.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="MoveingBlock.cpp" />
+    <ClCompile Include="Platform.cpp" />
+    <ClCompile Include="Score.cpp" />
+    <ClCompile Include="SimpleBlock.cpp" />
+    <ClCompile Include="SolidBlock.cpp" />
+    <ClCompile Include="SpeedUpBlock.cpp" />
+    <ClCompile Include="Wall.cpp" />
+    <ClCompile Include="AddBallBonus.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ArkanoidScene.hpp" />
+    <ClInclude Include="Ball.hpp" />
+    <ClInclude Include="Block.hpp" />
+    <ClInclude Include="Bonus.hpp" />
+    <ClInclude Include="BonusBlock.hpp" />
+    <ClInclude Include="Destroyable.hpp" />
+    <ClInclude Include="GameController.hpp" />
+    <ClInclude Include="HealthBlock.hpp" />
+    <ClInclude Include="MoveingBlock.hpp" />
+    <ClInclude Include="Platform.hpp" />
+    <ClInclude Include="Score.hpp" />
+    <ClInclude Include="SimpleBlock.hpp" />
+    <ClInclude Include="SolidBlock.hpp" />
+    <ClInclude Include="SpeedUpBlock.hpp" />
+    <ClInclude Include="Wall.hpp" />
+    <ClInclude Include="AddBallBonus.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="MainLevel.txt" />
+  </ItemGroup>
+</Project>
